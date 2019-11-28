@@ -1,0 +1,57 @@
+﻿@using Proyecto_final.Models;
+@model  Usuario
+@{
+    ViewBag.Title = "Login";
+}
+
+
+@* Hacer un if con el session de que si hay una cuenta activa en vez de ir a login vaya a cuenta *@
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Login
+                <small>Iniciar Sesión</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    @Html.ActionLink("Inicio", "Index", "Home")
+                </li>
+                <li class="active">Login</li>
+            </ol>
+        </div>
+
+        <p><br /><br /><br /><br /></p>
+        <div class="section-colored text-center">
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>
+                    </div>
+                    @using (Html.BeginForm("Login", "Clientes", FormMethod.Post))
+                    {
+                        <p id="NomUsuario">Nombre del usuario: @Html.TextBoxFor(x => x.NombreDeUsuario) </p>
+                        <p>Contraseña: @Html.TextBoxFor(x => x.Contraseña, new { type = "password" })</p>
+                        <input type="submit" value="Login" />
+
+                        @ViewBag.Error
+                    }
+                    <br />
+                    <p>¿Todavía no tenes una cuenta? </p> @Html.ActionLink("Click acá para registrarte", "Registrarse", "Clientes")
+                </div>
+                <hr>
+            </div>
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+
+</div>
+

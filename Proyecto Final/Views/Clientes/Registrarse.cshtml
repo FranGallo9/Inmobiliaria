@@ -1,0 +1,26 @@
+﻿@using Proyecto_final.Models;
+@model Usuario
+@{
+    ViewBag.Title = "Registrarse";
+}
+
+<h2>Registrarse</h2>
+
+@*<p>Nombre, Apellido, Usuario, contraseña, confimar contra</p>*@
+
+<p1>Bienvenido a Grupo 5 - Propiedades. <small>Acá podrás encontrar los mejores inmuebles al mejor precio!</small></p1>
+<p>
+    @using (Html.BeginForm("Registrarse", "Clientes", FormMethod.Post))
+    {
+        <b>Nombre de Usuario:@Html.TextBoxFor(x => x.NombreDeUsuario)</b>
+        <br />
+        <b>Nombre:@Html.TextBoxFor(x => x.Nombre)</b>
+        <br />
+        <b>Apellido:@Html.TextBoxFor(x => x.Apellido)</b>
+        <br />
+        <b>Contraseña:@Html.TextBoxFor(x => x.Contraseña, new { type = "password" })</b>
+        <br />
+        <input type="submit" value="Registrarse" />
+    }
+
+</p>

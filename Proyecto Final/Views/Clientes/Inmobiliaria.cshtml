@@ -1,0 +1,43 @@
+﻿@using Proyecto_final.Models;
+@model Inmueble
+@{
+    ViewBag.Title = "Propiedades";
+    ViewBag.Baños = "Ejemplo";
+    ViewBag.Habitaciones = "Ejemplo";
+    ViewBag.Barrio = "Ejemplo";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Propiedades
+                <small>Buscar propiedades</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    @Html.ActionLink("Inicio", "Index", "Home")
+                </li>
+                <li class="active">PROPIEDADES</li>
+            </ol>
+        </div>
+    </div>
+    </div>
+    <!-- /.row -->
+    @if (Session["nombreUsuario"] != null) {
+        foreach (Inmueble Inm in ViewBag.Lista) {
+    <div class="row">
+        <div class="col-md-4 portfolio-item">
+            <a href="@Url.Action("UnoSolo", "Propiedades")">
+                <img src="../Img/@Inm.Imagen" class="img-responsive">
+            </a>
+            <h3>
+                @Html.ActionLink("Propiedad/Precio", "UnoSolo", "Clientes")
+            </h3>
+            <p>Precio: @Inm.Precio . Dirección: @Inm.Direccion . Superficie: @Inm.Superficie </p>
+            @Html.ActionLink("Reservar", "Reservar", "Clientes", new { id = Inm.ID }, new { onclick = "return confirm('Estas seguro de querer reservar la propiedad?');" })
+        </div>
+    </div>
+        }
+
+     }
+}
