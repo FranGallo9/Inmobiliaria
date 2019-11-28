@@ -1,26 +1,56 @@
-﻿@using Proyecto_final.Models;
+@using Proyecto_final.Models;
 @model Usuario
 @{
     ViewBag.Title = "Registrarse";
 }
 
-<h2>Registrarse</h2>
-
 @*<p>Nombre, Apellido, Usuario, contraseña, confimar contra</p>*@
 
-<p1>Bienvenido a Grupo 5 - Propiedades. <small>Acá podrás encontrar los mejores inmuebles al mejor precio!</small></p1>
-<p>
-    @using (Html.BeginForm("Registrarse", "Clientes", FormMethod.Post))
-    {
-        <b>Nombre de Usuario:@Html.TextBoxFor(x => x.NombreDeUsuario)</b>
-        <br />
-        <b>Nombre:@Html.TextBoxFor(x => x.Nombre)</b>
-        <br />
-        <b>Apellido:@Html.TextBoxFor(x => x.Apellido)</b>
-        <br />
-        <b>Contraseña:@Html.TextBoxFor(x => x.Contraseña, new { type = "password" })</b>
-        <br />
-        <input type="submit" value="Registrarse" />
-    }
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Registrarse
+                <small>Acá vas a encontrar las mejores propiedades al mejor precio</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    @Html.ActionLink("Inicio", "Index", "Home")
+                </li>
+                <li class="active">Registrarse</li>
+            </ol>
+        </div>
+    </div>
 
-</p>
+
+
+    <div class="section-colored text-center">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    @using (Html.BeginForm("Registrarse", "Clientes", FormMethod.Post))
+                    {
+
+                        <b>Nombre de Usuario:</b> @Html.TextBoxFor(x => x.NombreDeUsuario)
+                        <br />
+                        <b>Nombre:</b> @Html.TextBoxFor(x => x.Nombre)
+                        <br />
+                        <b>Apellido:</b> @Html.TextBoxFor(x => x.Apellido)
+                        <br />
+                        <b>Contraseña:</b> @Html.TextBoxFor(x => x.Contraseña, new { type = "password" })
+                        <br />
+                        <input type="submit" value="Registrarse" />
+                    }
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
